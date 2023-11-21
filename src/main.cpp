@@ -186,13 +186,7 @@ int main()
 
 	// Call the final function to built the 2d segment tree.
 	finalSegment(low, high, 1);
-
-	/*
-Query:
-* To request the query for sub-rectangle y1, y2=(2, 3) x1, x2=(2, 3)
-* update the value of index (3, 3)=100;
-* To request the query for sub-rectangle y1, y2=(2, 3) x1, x2=(2, 3)
-*/
+	
 	cout << "The sum of the submatrix (y1, y2)->(2, 3), "
 		<< " (x1, x2)->(2, 3) is "
 		<< query(1, 1, 4, 2, 3, 2, 3) << endl;
