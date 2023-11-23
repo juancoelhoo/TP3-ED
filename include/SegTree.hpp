@@ -63,7 +63,7 @@ public:
             return {x, y};
         }
         if (t0 <= tl && td >= tr) {
-            return multiply(tree[v], {x, y});
+            return multiply(this->tree[v], {x, y});
         }
 
         int tm = (tl + tr) / 2;
