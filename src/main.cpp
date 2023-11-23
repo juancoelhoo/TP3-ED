@@ -24,7 +24,7 @@ int main() {
             int t0, td, x, y;
             cin >> t0 >> td >> x >> y;
             Point result = segTree.query(t0, td, x, y);
-            cout << "Query result: (" << result.x << ", " << result.y << ")" << endl;
+            cout << "" << result.x << " " << result.y << endl;
         }
     }
 

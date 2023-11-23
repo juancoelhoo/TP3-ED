@@ -59,7 +59,7 @@ public:
 
     Point query(int t0, int td, int x, int y, int v = 1, int tl = 0, int tr = -1) {
         if (tr == -1) tr = n - 1;
-        if (t0 > tr || td < tl) {
+        if (td < tl || t0 > tr) {
             return {x, y};
         }
         if (t0 <= tl && td >= tr) {
@@ -68,8 +68,9 @@ public:
 
         int tm = (tl + tr) / 2;
         Point left_result = query(t0, td, x, y, 2 * v, tl, tm);
-        Point right_result = query(t0, td, x, y, 2 * v + 1, tm + 1, tr);
+        Point right_result = query(t0, td, left_result.x, left_result.y, 2 * v + 1, tm + 1, tr);
 
-        return {left_result.x + right_result.x, left_result.y + right_result.y};
+        return right_result;
     }
+
 };
