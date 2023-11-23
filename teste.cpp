@@ -30,7 +30,7 @@ public:
             int tm = (tl + tr) / 2;
             build(arr, 2 * v, tl, tm);
             build(arr, 2 * v + 1, tm + 1, tr);
-            tree[v] = {tree[2 * v].a, tree[2 * v].b, tree[2 * v + 1].c, tree[2 * v + 1].d};
+            tree[v] = {tree[2 * v].a, tree[2 * v].b, tree[2 * v].c, tree[2 * v].d};
         }
     }
 
