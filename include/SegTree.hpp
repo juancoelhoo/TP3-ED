@@ -23,6 +23,11 @@ public:
     SegTree(int size) : n(size)
 	{
 		tree = new Matrix[4 * size];
+        // Build the segment tree with identity matrices
+        for (int i = 0; i < n; ++i) {
+            Matrix identityMatrix = {1, 0, 0, 1};
+            this->update(i, identityMatrix);
+        }
 	}
 
     void build(Matrix arr[], int v = 1, int tl = 0, int tr = -1) {
