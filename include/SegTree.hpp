@@ -59,10 +59,10 @@ public:
 
     Point query(int t0, int td, int x, int y, int v = 1, int tl = 0, int tr = -1) {
         if (tr == -1) tr = n - 1;
-        if (td < tl || t0 > tr) {
+        if (td < tl || t0 > tr || tl > tr) {
             return {x, y};
         }
-        if (t0 <= tl && td >= tr) {
+        if (tl <= t0 && tr >= td) {
             return multiply(this->tree[v], {x, y});
         }
 
