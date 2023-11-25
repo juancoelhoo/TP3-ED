@@ -1,41 +1,41 @@
-#include <iostream>
-#include "../include/SegTree.hpp"
+#include "../include/segTree.hpp"
 
 int main() {
-    int n, q;
+    unsigned int n, q;
     cin >> n >> q;
 
     // Create a SegTree with size n
-    SegTree segTree(n);
+    segTree segTree(n);
 
-    Point queryResults[q];
-    int resultIndex = 0;
+    Point results[q];   
+    int resultIndex = 0;  
 
-    // Perform q operations (update or query)
     for (int i = 0; i < q; ++i) {
         char operationType;
         cin >> operationType;
 
         if (operationType == 'u') {
-            // Update operation
-            int pos;
-            Matrix newTransform;
-            cin >> pos >> newTransform.a >> newTransform.b >> newTransform.c >> newTransform.d;
-            segTree.update(pos, newTransform);
+            int a;
+            cin >> a;
+            for (int j = 0; j < 2; ++j) {
+                for (int k = 0; k < 2; ++k) {
+                    cin >> segTree.transforms[a].values[j][k];
+                }
+            }
+            segTree.update(1, 0, n - 1, a, segTree.transforms[a]);
         } else if (operationType == 'q') {
-            // Query operation
             int t0, td, x, y;
             cin >> t0 >> td >> x >> y;
-            Point result = segTree.query(t0, td, x, y);
-            queryResults[resultIndex].x = result.x;
-            queryResults[resultIndex].y = result.y;
-            resultIndex++;
+            Matrix M_res = segTree.query(1, 0, n - 1, t0, td);
+            Point point = {x, y};
+            Point result = point.linear_transf(M_res, point);
+            results[resultIndex++] = result;
         }
     }
 
-    // Print all query results
+    // Print the results after processing all operations
     for (int i = 0; i < resultIndex; ++i) {
-        cout << queryResults[i].x << " " << queryResults[i].y << endl;
+        cout << results[i].x << " " << results[i].y << "\n";
     }
 
     return 0;
