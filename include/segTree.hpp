@@ -1,33 +1,30 @@
+#ifndef SEGTREE_HPP
+#define SEGTREE_HPP
+
 #include <iostream>
 #include "../include/matrix.hpp"
 
-#define MOD 100000000
-
-using namespace std;
-
 class segTree {
     private:
-        Matrix* Tree; // Árvore de segmentação
-        int maxNodes;
-
+        Matrix* Tree;    
+        int maxNodes;        
     public:
-        Matrix* transforms;
+        Matrix* linear_transformations;
 
+        // Constructor for initializing the segment tree with a specified number of linear transformations
         segTree(unsigned int n);
 
-        ~segTree();
-
-        // Função para multiplicar duas matrizes
-        Matrix multiply_matrices(const Matrix matrix1, const Matrix matrix2);
-
-        // Função para construir a árvore de segmentação
+        // Build the segment tree given the root node, start, and end indices
         void build(int node, int start, int end);
 
-        // Função para atualizar uma transformação
+        // Update the segment tree by modifying the value at a specified index
         void update(int node, int start, int end, int idx, const Matrix newValue);
             
-
-        // Função para realizar uma consulta
+        // Query the segment tree for the combined linear transformation in a specified range
         Matrix query(int node, int start, int end, int left, int right);
 
+        // Destructor to free dynamically allocated memory
+        ~segTree();
 };
+
+#endif
