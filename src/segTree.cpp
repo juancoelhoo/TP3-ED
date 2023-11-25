@@ -11,14 +11,6 @@ segTree::segTree(unsigned int n){
     this->build(1, 0, n-1);
 }
 
-Point Point::linear_transf(const Matrix matrix, const Point A)
-{
-    Point result;
-    result.x = (matrix.values[0][0] * A.x) + (matrix.values[0][1] * A.y); 
-    result.y = (matrix.values[1][0] * A.x) + (matrix.values[1][1] * A.y);
-    return result;
-}
-
 Matrix segTree::multiply_matrices(const Matrix matrix1, const Matrix matrix2){
     Matrix result;
     for (int i = 0; i < 2; ++i) {
@@ -31,6 +23,14 @@ Matrix segTree::multiply_matrices(const Matrix matrix1, const Matrix matrix2){
             }
         }
     }
+    return result;
+}
+
+Point Point::linear_transf(const Matrix matrix, const Point A)
+{
+    Point result;
+    result.x = (matrix.values[0][0] * A.x) + (matrix.values[0][1] * A.y); 
+    result.y = (matrix.values[1][0] * A.x) + (matrix.values[1][1] * A.y);
     return result;
 }
 

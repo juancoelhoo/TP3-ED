@@ -16,6 +16,7 @@ run:$(EXE)
 
 all:$(EXE)
 
+
 $(BIN)/tp3.out: $(OBJS)
 	$(CC) -g -o $(BIN)/tp3.out $(OBJS) $(LIBS)
 
