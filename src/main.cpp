@@ -23,7 +23,8 @@ int main() {
             }
             segTree.update(1, 0, n - 1, a, segTree.linear_transformations[a]);
         } else if (operationType == 'q') {
-            int t0, td, x, y;
+            int t0, td;
+            unsigned long int x, y;
             std::cin >> t0 >> td >> x >> y;
             Matrix M_res = segTree.query(1, 0, n - 1, t0, td);
             Point point = {x, y};

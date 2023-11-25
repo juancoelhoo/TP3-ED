@@ -28,7 +28,7 @@ struct Identity_Matrix
 
 // Represents a 2D point
 struct Point {
-    int x, y;
+    unsigned long int x, y;
 
     // Function for performing a linear transformation on a Point using a Matrix
     Point linear_transf(const Matrix matrix, const Point A);
