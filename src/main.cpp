@@ -9,7 +9,7 @@ int main() {
     Point results[q];   
     int resultIndex = 0;  
 
-    for (int i = 0; i < q; ++i) {
+    for (unsigned int i = 0; i < q; ++i) {
         char operationType;
         std::cin >> operationType;
 
