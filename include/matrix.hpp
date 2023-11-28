@@ -1,10 +1,12 @@
 #ifndef MATRIX_HPP
 #define MATRIX_HPP
 
+#define MOD 100000000
+
 // Represents a 2x2 matrix
 struct Matrix 
 {
-    int values[2][2];
+    unsigned long int values[2][2];
 
     // Multiply 2x2 matrices 
     Matrix multiply_matrices(const Matrix matrix1, const Matrix matrix2);
