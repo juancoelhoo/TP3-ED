@@ -1,4 +1,5 @@
 #include "../include/segTree.hpp"
+#include <stdexcept>
 
 int main() {
     unsigned int n, q;
