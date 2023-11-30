@@ -1,7 +1,5 @@
 #include "../include/matrix.hpp"
 
-#define MOD 100000000
-
 Point Point::linear_transf(const Matrix matrix, const Point A)
 {
     Point result;
@@ -16,8 +14,7 @@ Matrix Matrix::multiply_matrices(const Matrix matrix1, const Matrix matrix2){
         for (int j = 0; j < 2; ++j) {
             result.values[i][j] = 0;
             for (int k = 0; k < 2; ++k) {
-                result.values[i][j] += (static_cast<long long>
-                (matrix1.values[i][k]) * matrix2.values[k][j]) % MOD;
+                result.values[i][j] += (matrix1.values[i][k] * matrix2.values[k][j]) % MOD;
                 result.values[i][j] %= MOD;
             }
         }

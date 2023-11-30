@@ -37,7 +37,7 @@ int main() {
 
     // Print the results after processing all operations
     for (int i = 0; i < resultIndex; ++i) {
-        std::cout << results[i].x << " " << results[i].y << "\n";
+        std::cout << results[i].x % MOD << " " << results[i].y % MOD << "\n";
     }
 
     return 0;
