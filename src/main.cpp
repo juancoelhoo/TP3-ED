@@ -30,6 +30,8 @@ int main() {
             Point point = {x, y};
             Point result = point.linear_transf(M_res, point);
             results[resultIndex++] = result;
+        } else {
+            throw std::invalid_argument("Invalid operationType: " + std::to_string(operationType));
         }
     }
 
